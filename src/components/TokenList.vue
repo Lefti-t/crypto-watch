@@ -5,10 +5,21 @@
         class="bordered"
         dark
         hover
-        :items="tokens.data"
+        :items="itemsLessThanTen"
         :fields="fields"
       >
-        <template class="price-column" #cell(priceUsd)="data">
+        <template #cell(name)="data"
+          ><img
+            v-bind:src="
+              require('../assets/icons/' +
+                data.item.name.toLowerCase() +
+                '.png')
+            "
+            width="17"
+          />
+          {{ data.item.name }}
+        </template>
+        <template #cell(priceUsd)="data">
           {{ currencies(data.item.priceUsd) }}
         </template>
         <template #cell(marketCapUsd)="data">
@@ -34,7 +45,8 @@ export default {
   components: {},
   data() {
     return {
-      tokens: [],
+      top20Feed: [],
+      tokens: { data: [] },
       fields: [
         {
           key: "rank",
@@ -73,7 +85,13 @@ export default {
       ]
     };
   },
-  computed: {},
+  computed: {
+    itemsLessThanTen: function() {
+      return this.tokens.data.filter(function(item) {
+        return item.rank <= 30;
+      });
+    }
+  },
   methods: {
     currencies(num) {
       let result;
@@ -89,7 +107,7 @@ export default {
       else if (firstChar === "-") return "text-red";
     }
   },
-  mounted() {
+  created() {
     axios
       .get("https://api.coincap.io/v2/assets")
 
@@ -109,7 +127,7 @@ export default {
 </script>
 
 <style >
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@200;400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@100;400;600&display=swap");
 .tokens-container {
   width: 80%;
   height: 100;
@@ -127,10 +145,13 @@ export default {
 .text-green {
   color: rgb(6, 163, 6);
 }
+
 .header {
-  background: rgb(14, 14, 14);
+  background-color: rgb(22, 22, 22);
+
   font-family: "Open Sans", sans-serif;
-  font-weight: lighter;
+  font-weight: 100;
+  font-size: 12px;
   color: rgb(175, 174, 174);
 }
 .b-table {
@@ -140,15 +161,34 @@ export default {
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
 }
+
+.bordered th:nth-child(2) {
+  border-bottom: none;
+  text-align: justify;
+}
+.bordered td:nth-child(2) {
+  text-align: justify;
+}
+.bordered th:nth-child(3) {
+  border-bottom: none;
+}
+.bordered th:nth-child(4) {
+  border-bottom: none;
+}
+.bordered th:nth-child(5) {
+  border-bottom: none;
+}
 .bordered th:first-child {
-    -moz-border-radius: 4px 0 0 0;
-    -webkit-border-radius: 4px 0 0 0;
-    border-radius: 4px 0 0 0;
+  -moz-border-radius: 4px 0 0 0;
+  -webkit-border-radius: 4px 0 0 0;
+  border-radius: 4px 0 0 0;
+  border-bottom: none;
 }
 .bordered th:last-child {
   -moz-border-radius: 0 4px 0 0;
   -webkit-border-radius: 0 4px 0 0;
   border-radius: 0 4px 0 0;
+  border-bottom: none;
 }
 .bordered th:only-child {
   -moz-border-radius: 4px 4px 0 0;

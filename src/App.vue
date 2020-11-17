@@ -1,9 +1,23 @@
 <template>
   <div id="app">
+    <Header id="header" />
     <router-view></router-view>
   </div>
 </template>
 
+<script>
+import Header from "./components/Header.vue";
+
+export default {
+  name: "App",
+  components: {
+    Header
+  },
+  data() {
+    return {};
+  }
+};
+</script>
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -24,5 +38,10 @@
 
 #nav a.router-link-exact-active {
   color: #42b983;
+}
+#header {
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
 }
 </style>
