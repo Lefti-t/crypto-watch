@@ -51,36 +51,36 @@ export default {
         {
           key: "rank",
           sortable: true,
-          thClass: "header"
+          thClass: "table-header"
         },
         {
           key: "name",
           sortable: true,
-          thClass: "header"
+          thClass: "table-header"
         },
         {
           key: "priceUsd",
           sortable: true,
-          thClass: "header"
+          thClass: "table-header"
         },
         {
           key: "marketCapUsd",
           type: Number,
           sortable: true,
-          thClass: "header"
+          thClass: "table-header"
         },
         {
           key: "volumeUsd24Hr",
           label: "Volume 24Hr",
           sortable: true,
-          thClass: "header"
+          thClass: "table-header"
         },
         {
           key: "changePercent24Hr",
           label: "Change 24Hr",
           sortable: true,
           tdClass: "setAmountTdClass",
-          thClass: "header"
+          thClass: "table-header"
         }
       ]
     };
@@ -130,13 +130,13 @@ export default {
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@100;400;600&display=swap");
 .tokens-container {
   width: 80%;
-  height: 100;
+  height: 10px;
   margin-top: 4%;
   margin-bottom: 50px;
   margin-left: auto;
   margin-right: auto;
   box-shadow: 0px 0px 30px 0px rgb(59, 59, 59);
-  border-radius: 5px;
+  border-radius: 4px;
 }
 .text-red {
   color: rgb(250, 42, 42);
@@ -146,7 +146,7 @@ export default {
   color: rgb(6, 163, 6);
 }
 
-.header {
+.table-header {
   background-color: rgb(22, 22, 22);
 
   font-family: "Open Sans", sans-serif;

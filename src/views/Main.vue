@@ -6,8 +6,6 @@
 
 <script>
 import TokenList from "../components/TokenList.vue";
-import numeral from "numeral";
-
 
 export default {
   name: "Main",
@@ -16,15 +14,9 @@ export default {
   },
   data() {
     return {
-      tokens: []
     };
   },
-  computed: {
-    currencies(num) {
-      let result = numeral(parseFloat(num)).format("$0,00a");
-      return result;
-    }
-  }
+  computed: {}
 };
 </script>
 

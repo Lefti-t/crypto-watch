@@ -39,9 +39,5 @@ export default {
 #nav a.router-link-exact-active {
   color: #42b983;
 }
-#header {
-  margin-top: 30px;
-  margin-left: auto;
-  margin-right: auto;
-}
+
 </style>
