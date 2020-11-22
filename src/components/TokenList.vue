@@ -37,16 +37,15 @@
 </template>
 
 <script>
-import axios from "axios";
 import numeral from "numeral";
 
 export default {
   name: "tokenList",
+  props: { tokens: { data: [] } },
   components: {},
   data() {
     return {
       top20Feed: [],
-      tokens: { data: [] },
       fields: [
         {
           key: "rank",
@@ -106,22 +105,6 @@ export default {
       if (firstChar !== "-") return "text-green";
       else if (firstChar === "-") return "text-red";
     }
-  },
-  created() {
-    axios
-      .get("https://api.coincap.io/v2/assets")
-
-      .then(response => {
-        this.tokens = response.data;
-      })
-      .catch(error =>
-        this.$toasted.show(error, {
-          icon: "error",
-          theme: "outline",
-          duration: 5000,
-          position: "top-center"
-        })
-      );
   }
 };
 </script>
