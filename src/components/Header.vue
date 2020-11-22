@@ -60,14 +60,14 @@ export default {};
   align-items: center;
   margin-left: auto;
   margin-right: auto;
-  border-bottom: 1px solid black;
+  border-bottom: 2px solid black;
 }
 #nav-collapse {
   justify-content: space-evenly;
   width: 10%;
 }
 .navbar-nav .nav-link2 {
-  color: #3ef531;
+  color: lightgray;
   outline: 0cm;
   padding: 0px;
 }
@@ -75,7 +75,7 @@ export default {};
   align-items: flex-end;
 }
 .navbar-light .navbar-nav .nav-link {
-  color: #3ef531;
+  color: lightgray;
   padding: 0px;
 }
 .nav-link2 .navbar-nav  {
@@ -108,7 +108,7 @@ input[type="text"]:focus {
 
 ::placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: #3ef531;
+  color: lightgray;
   opacity: 1; /* Firefox */
   font-size: 15px;
   outline: 0cm;
@@ -116,14 +116,14 @@ input[type="text"]:focus {
 
 :-ms-input-placeholder {
   /* Internet Explorer 10-11 */
-  color: #3ef531;
+  color: lightgray;
   font-size: 12px;
   outline: 0cm;
 }
 
 ::-ms-input-placeholder {
   /* Microsoft Edge */
-  color: #3ef531;
+  color: #llightgray;
   font-size: 12px;
   outline: 0cm;
 }

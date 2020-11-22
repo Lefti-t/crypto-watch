@@ -1,6 +1,6 @@
 <template>
   <div>
-    <InfoBar :tokens="tokenData"/>
+    <InfoBar :tokens="tokenData" />
     <TokenList :tokens="tokenData" />
   </div>
 </template>

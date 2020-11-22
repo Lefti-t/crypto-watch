@@ -15,7 +15,7 @@
                 data.item.name.toLowerCase() +
                 '.png')
             "
-            width="17"
+            width="15"
           />
           {{ data.item.name }}
         </template>
@@ -113,13 +113,14 @@ export default {
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@100;400;600&display=swap");
 .tokens-container {
   width: 80%;
-  height: 10px;
-  margin-top: 4%;
+  height: 90%;
+  margin-top: 2%;
   margin-bottom: 50px;
   margin-left: auto;
   margin-right: auto;
-  box-shadow: 0px 0px 30px 0px rgb(59, 59, 59);
+  box-shadow: 0px 0px 30px 0px rgb(8, 8, 8);
   border-radius: 4px;
+  
 }
 .text-red {
   color: rgb(250, 42, 42);
@@ -131,7 +132,7 @@ export default {
 
 .table-header {
   background-color: rgb(22, 22, 22);
-
+  outline: 0cm;
   font-family: "Open Sans", sans-serif;
   font-weight: 100;
   font-size: 12px;
@@ -148,30 +149,38 @@ export default {
 .bordered th:nth-child(2) {
   border-bottom: none;
   text-align: justify;
+    border-top: 1px solid rgb(43, 42, 42);
 }
 .bordered td:nth-child(2) {
   text-align: justify;
+  
+  
 }
 .bordered th:nth-child(3) {
   border-bottom: none;
+   border-top: 1px solid rgb(43, 42, 42);
 }
 .bordered th:nth-child(4) {
   border-bottom: none;
+    border-top: 1px solid rgb(43, 42, 42);
 }
 .bordered th:nth-child(5) {
   border-bottom: none;
+    border-top: 1px solid rgb(43, 42, 42);
 }
 .bordered th:first-child {
   -moz-border-radius: 4px 0 0 0;
   -webkit-border-radius: 4px 0 0 0;
   border-radius: 4px 0 0 0;
   border-bottom: none;
+    border-top: 1px solid rgb(43, 42, 42);
 }
 .bordered th:last-child {
   -moz-border-radius: 0 4px 0 0;
   -webkit-border-radius: 0 4px 0 0;
   border-radius: 0 4px 0 0;
   border-bottom: none;
+    border-top: 1px solid rgb(43, 42, 42);
 }
 .bordered th:only-child {
   -moz-border-radius: 4px 4px 0 0;
@@ -182,10 +191,12 @@ export default {
   -moz-border-radius: 0 0 0 4px;
   -webkit-border-radius: 0 0 0 4px;
   border-radius: 0 0 0 4px;
+  
 }
 .bordered tr:last-child td:last-child {
   -moz-border-radius: 0 0 4px 0;
   -webkit-border-radius: 0 0 4px 0;
   border-radius: 0 0 4px 0;
+  
 }
 </style>
