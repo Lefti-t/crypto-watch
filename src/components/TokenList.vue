@@ -1,11 +1,12 @@
 <template>
-  <div class="tokens-container">
-    <div>
+  <div>
+    <div class="tokens-container">
       <b-table
-        class="bordered"
+        class="bordered align-middle"
         dark
+        small
         hover
-        :items="itemsLessThanTen"
+        :items="calculateFeed"
         :fields="fields"
       >
         <template #cell(name)="data"
@@ -15,7 +16,7 @@
                 data.item.name.toLowerCase() +
                 '.png')
             "
-            width="15"
+            height="20"
           />
           {{ data.item.name }}
         </template>
@@ -33,6 +34,8 @@
         </template>
       </b-table>
     </div>
+    <div></div>
+    <b-button v-on:click="loadMoreTokens()">Next 50</b-button>
   </div>
 </template>
 
@@ -45,7 +48,8 @@ export default {
   components: {},
   data() {
     return {
-      top20Feed: [],
+      tokenFeed: 0,
+
       fields: [
         {
           key: "rank",
@@ -85,9 +89,10 @@ export default {
     };
   },
   computed: {
-    itemsLessThanTen: function() {
+    calculateFeed: function() {
+      var TokensToSHow = this.tokenFeed + 30;
       return this.tokens.data.filter(function(item) {
-        return item.rank <= 30;
+        return item.rank <= TokensToSHow;
       });
     }
   },
@@ -104,6 +109,9 @@ export default {
       var firstChar = value.charAt(0);
       if (firstChar !== "-") return "text-green";
       else if (firstChar === "-") return "text-red";
+    },
+    loadMoreTokens() {
+      this.tokenFeed += 50;
     }
   }
 };
@@ -120,7 +128,6 @@ export default {
   margin-right: auto;
   box-shadow: 0px 0px 30px 0px rgb(8, 8, 8);
   border-radius: 4px;
-  
 }
 .text-red {
   color: rgb(250, 42, 42);
@@ -145,42 +152,71 @@ export default {
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
 }
-
+.bordered th:nth-child(1) {
+  vertical-align: middle;
+}
 .bordered th:nth-child(2) {
   border-bottom: none;
   text-align: justify;
-    border-top: 1px solid rgb(43, 42, 42);
+  border-top: 1px solid rgb(43, 42, 42);
+  padding: 10px;
+}
+.bordered th:nth-child(3) {
+  vertical-align: middle;
+}
+.bordered th:nth-child(4) {
+  vertical-align: middle;
+}
+.bordered th:nth-child(5) {
+  vertical-align: middle;
+}
+.bordered th:nth-child(6) {
+  vertical-align: middle;
+}
+.table-sm td:nth-child(1) {
+  vertical-align: middle;
 }
 .bordered td:nth-child(2) {
   text-align: justify;
-  
-  
+  padding: 10px;
+}
+.table-sm td:nth-child(3) {
+  vertical-align: middle;
+}
+.table-sm td:nth-child(4) {
+  vertical-align: middle;
+}
+.table-sm td:nth-child(5) {
+  vertical-align: middle;
+}
+.table-sm td:nth-child(6) {
+  vertical-align: middle;
 }
 .bordered th:nth-child(3) {
   border-bottom: none;
-   border-top: 1px solid rgb(43, 42, 42);
+  border-top: 1px solid rgb(43, 42, 42);
 }
 .bordered th:nth-child(4) {
   border-bottom: none;
-    border-top: 1px solid rgb(43, 42, 42);
+  border-top: 1px solid rgb(43, 42, 42);
 }
 .bordered th:nth-child(5) {
   border-bottom: none;
-    border-top: 1px solid rgb(43, 42, 42);
+  border-top: 1px solid rgb(43, 42, 42);
 }
 .bordered th:first-child {
   -moz-border-radius: 4px 0 0 0;
   -webkit-border-radius: 4px 0 0 0;
   border-radius: 4px 0 0 0;
   border-bottom: none;
-    border-top: 1px solid rgb(43, 42, 42);
+  border-top: 1px solid rgb(43, 42, 42);
 }
 .bordered th:last-child {
   -moz-border-radius: 0 4px 0 0;
   -webkit-border-radius: 0 4px 0 0;
   border-radius: 0 4px 0 0;
   border-bottom: none;
-    border-top: 1px solid rgb(43, 42, 42);
+  border-top: 1px solid rgb(43, 42, 42);
 }
 .bordered th:only-child {
   -moz-border-radius: 4px 4px 0 0;
@@ -191,12 +227,10 @@ export default {
   -moz-border-radius: 0 0 0 4px;
   -webkit-border-radius: 0 0 0 4px;
   border-radius: 0 0 0 4px;
-  
 }
 .bordered tr:last-child td:last-child {
   -moz-border-radius: 0 0 4px 0;
   -webkit-border-radius: 0 0 4px 0;
   border-radius: 0 0 4px 0;
-  
 }
 </style>

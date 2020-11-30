@@ -60,7 +60,7 @@ export default {};
   align-items: center;
   margin-left: auto;
   margin-right: auto;
-  border-bottom: 2px solid black;
+  border-bottom: 1px solid rgb(216, 214, 214);
 }
 #nav-collapse {
   justify-content: space-evenly;
